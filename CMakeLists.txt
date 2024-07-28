@@ -15,6 +15,7 @@ set(LIB_SOURCES
         src/core/messages.c
         src/core/settings.c
         src/network/network.c
+        lib/sqlite/sqlite3.c
 )
 
 # Library header files
@@ -31,6 +32,8 @@ set(LIB_HEADERS
         include/libmessagekit/libmessagekit.h
         include/libmessagekit/messages.h
         include/libmessagekit/settings.h
+        include/sqlite/sqlite3.h
+        include/sqlite/sqlite3ext.h
 )
 
 # Make the library
