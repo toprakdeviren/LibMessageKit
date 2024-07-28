@@ -82,3 +82,6 @@ xcuserdata/
 *.sw?
 .DS_Store
 Thumbs.db
+
+# CMake build directory
+cmake-build-debug/
