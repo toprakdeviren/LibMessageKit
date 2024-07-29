@@ -15,6 +15,7 @@ set(LIB_SOURCES
         src/core/messages.c
         src/core/settings.c
         src/network/network.c
+        src/db/database.c
         lib/sqlite/sqlite3.c
 )
 
@@ -32,6 +33,9 @@ set(LIB_HEADERS
         include/libmessagekit/libmessagekit.h
         include/libmessagekit/messages.h
         include/libmessagekit/settings.h
+
+        include/libmessagekit/private/database.h
+
         include/sqlite/sqlite3.h
         include/sqlite/sqlite3ext.h
 )
@@ -46,6 +50,7 @@ target_include_directories(libmessagekit
         $<INSTALL_INTERFACE:include>
         PRIVATE
         ${CMAKE_CURRENT_SOURCE_DIR}/src
+        ${CMAKE_CURRENT_SOURCE_DIR}/include/libmessagekit/private
 )
 
 # Installation rules
@@ -79,3 +84,8 @@ install(FILES
         "${CMAKE_CURRENT_BINARY_DIR}/LibMessageKitConfigVersion.cmake"
         DESTINATION lib/cmake/LibMessageKit
 )
+
+#Copy the schema.sql file to the build directory
+configure_file(${CMAKE_SOURCE_DIR}/resources/schema.sql
+        ${CMAKE_BINARY_DIR}/resources/schema.sql
+        COPYONLY)
