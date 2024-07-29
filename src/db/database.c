@@ -161,3 +161,33 @@ int db_init_schema(const char* schema_path)
     free(schema_sql);
     return result_code;
 }
+
+int execute_query(const char* query)
+{
+    if (query == NULL || strlen(query) == 0)
+    {
+        fprintf(stderr, "Query string is NULL or empty\n");
+        return SQLITE_ERROR;
+    }
+
+    if (db == NULL)
+    {
+        fprintf(stderr, "Database not opened\n");
+        return SQLITE_ERROR;
+    }
+
+    char* err_msg = NULL;
+    const int result_code = sqlite3_exec(db->handle, query, 0, 0, &err_msg);
+
+    if (result_code != SQLITE_OK)
+    {
+        fprintf(stderr, "SQL error: %s\n", err_msg);
+        sqlite3_free(err_msg);
+    }
+    else
+    {
+        fprintf(stderr, "Query executed successfully\n");
+    }
+
+    return result_code;
+}

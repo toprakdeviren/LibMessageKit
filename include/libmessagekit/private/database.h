@@ -29,6 +29,15 @@ void db_close();
  */
 int db_init_schema(const char* schema_path);
 
+
+/**
+ * @brief Executes a SQL query on the connected database.
+ *
+ * @param query The SQL query string to be executed.
+ * @return Zero on success, or an error code on failure.
+ */
+ int execute_query(const char* query);
+
 #ifdef __cplusplus
 }
 #endif

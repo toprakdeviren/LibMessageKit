@@ -96,19 +96,6 @@ ErrorCode migrate_data(const char* new_path);
 ErrorCode set_notification_token(const char* token);
 
 /**
- * @function update_notification_token
- * @brief Updates the existing notification token.
- *
- * This function is similar to set_notification_token, but it's specifically
- * for updating an existing token. It may perform additional operations
- * related to token updates.
- *
- * @param token The updated notification token.
- * @return ErrorCode indicating success or failure of the update.
- */
-ErrorCode update_notification_token(const char* token);
-
-/**
  * @function get_platform
  * @brief Retrieves the current platform the library is running on.
  *
