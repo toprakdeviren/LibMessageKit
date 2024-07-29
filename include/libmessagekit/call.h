@@ -77,7 +77,7 @@ void end_call(const char* call_id, CallOperationCallback callback);
 void hold_call(const char* call_id, CallOperationCallback callback);
 
 /**
- * @brief Resumes a call that was on hold.
+ * @brief Resumes a call on hold.
  *
  * @param call_id The ID of the call to resume.
  * @param callback Function to receive the call information and error code.

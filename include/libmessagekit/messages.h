@@ -24,8 +24,8 @@ typedef enum {
  * @struct MessageResult
  * @brief Structure containing the result of a message operation.
  *
- * @field message_id Unique identifier of the message.
- * @field error Error code indicating the result of the operation.
+ * @field Message_id Unique identifier of the message.
+ * @field Error code indicating the result of the operation.
  */
 typedef struct {
     char message_id[MESSAGE_ID_LENGTH];
@@ -36,8 +36,8 @@ typedef struct {
  * @struct AttachmentData
  * @brief Structure containing data for message attachments.
  *
- * @field data Pointer to the attachment data.
- * @field size Size of the attachment data in bytes.
+ * @field Data Pointer to the attachment data.
+ * @field Size of the attachment data in bytes.
  */
 typedef struct {
     const void* data;
@@ -48,9 +48,9 @@ typedef struct {
  * @struct FetchMessagesParams
  * @brief Parameters for fetching messages.
  *
- * @field conversation_id ID of the conversation to fetch messages from.
- * @field from_timestamp Timestamp to start fetching messages from.
- * @field limit Maximum number of messages to fetch.
+ * @field Conversation_id ID of the conversation to fetch messages from.
+ * @field From_timestamp Timestamp to start fetching messages from.
+ * @field Limit the Maximum number of messages to fetch.
  */
 typedef struct {
     char conversation_id[MESSAGE_ID_LENGTH];
@@ -62,8 +62,8 @@ typedef struct {
  * @struct BulkMessageOperation
  * @brief Structure for bulk message operations.
  *
- * @field message_ids Array of message IDs for bulk operations.
- * @field count Number of message IDs in the array.
+ * @field Message_ids Array of message IDs for bulk operations.
+ * @field Count the Number of message IDs in the array.
  */
 typedef struct {
     const char* message_ids[MAX_BULK_MESSAGES];
@@ -74,12 +74,12 @@ typedef struct {
  * @struct Message
  * @brief Structure representing a message.
  *
- * @field id Unique identifier of the message.
- * @field conversation_id ID of the conversation the message belongs to.
- * @field sender_id ID of the message sender.
- * @field type Type of the message.
- * @field timestamp Timestamp of when the message was sent.
- * @field content Content of the message.
+ * @field ID Unique identifier of the message.
+ * @field Conversation_id ID of the conversation the message belongs to.
+ * @field Sender_id ID of the message sender.
+ * @field Type of the message.
+ * @field Timestamp of when the message was sent.
+ * @field Content of the message.
  */
 typedef struct {
     char id[MESSAGE_ID_LENGTH];

@@ -8,11 +8,11 @@
  * @struct UserSettings
  * @brief Structure containing user-specific settings and profile information.
  *
- * @field status User's current status message.
- * @field display_name User's display name.
- * @field profile_picture Pointer to the user's profile picture data.
- * @field profile_picture_size Size of the profile picture data in bytes.
- * @field notifications_enabled Boolean indicating if notifications are enabled.
+ * @field Status User's current status message.
+ * @field Display_name User's display name.
+ * @field Profile_picture Pointer to the user's profile picture data.
+ * @field Profile_picture_size Size of the profile picture data in bytes.
+ * @field Notifications_enabled Boolean indicating if notifications are enabled.
  */
 typedef struct {
     char status[MAX_STATUS_LENGTH];

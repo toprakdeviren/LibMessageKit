@@ -44,7 +44,7 @@ typedef void (*GetCallDetailsCallback)(const CallHistoryEntry* entry, ErrorCode 
  * @brief Fetches call history based on given filter criteria.
  *
  * @param filter Filter criteria. If NULL, all history is fetched.
- * @param limit Maximum number of entries to fetch. 0 means no limit.
+ * @param limit Maximum number of entries to fetch. Zero means no limit.
  * @param offset Number of entries to skip (for pagination).
  * @param callback Function to receive the results and error code.
  */

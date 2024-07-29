@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-// Note: Platform specific infos host only on client, not will sent to server. Breif in whitepaper.
+// Note: Platform specific infos host only on a client, not will send to server. Brief in white paper.
 
 /**
  * @enum Platform
@@ -38,23 +38,25 @@ typedef enum {
  DEVICE_TYPE_UNKNOWN
 } DeviceType;
 
-/**
- * @struct CoreConfig
- * @brief Configuration structure for initializing the core library.
- *
- * @field storage_path The path where the library will store its data.
- * @field platform The specific platform on which the library is running.
- * @field platform_version The version of the platform.
- * @field device_type The type of device (phone, tablet, desktop, etc.).
- * @field device_model Optional field for the specific device model.
- */
-typedef struct {
- const char* storage_path;
- Platform platform;
- const char* platform_version;
- DeviceType device_type;
- const char* device_model;  // Optional, can be NULL
-} CoreConfig;
+ /**
+  * @struct CoreConfig
+  * @brief Configuration structure for initializing the core library.
+  *
+  * @field Storage_path The path where the library will store its data.
+  * @field Database_filename The name of the database file to be used.
+  * @field Platform The specific platform on which the library is running.
+  * @field Platform_version The version of the platform.
+  * @field Device_type The type of device (phone, tablet, desktop, etc.).
+  * @field Device_model Optional field for the specific device model.
+  */
+ typedef struct {
+  const char* storage_path;
+  const char* database_filename;
+  Platform platform;
+  const char* platform_version;
+  DeviceType device_type;
+  const char* device_model;  // Optional, can be NULL
+ } CoreConfig;
 
 /**
  * @function init
