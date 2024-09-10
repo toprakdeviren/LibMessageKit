@@ -2,79 +2,94 @@
 #define SETTINGS_H
 
 #include "common.h"
-#include "config.h"
+#include "private/config.h"
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * @struct UserSettings
- * @brief Structure containing user-specific settings and profile information.
+ * @brief structure containing user-specific settings and preferences.
  *
- * @field Status User's current status message.
- * @field Display_name User's display name.
- * @field Profile_picture Pointer to the user's profile picture data.
- * @field Profile_picture_size Size of the profile picture data in bytes.
- * @field Notifications_enabled Boolean indicating if notifications are enabled.
+ * @field status: User's current status message.
+ * @field display_name: User's display name.
+ * @field notifications_enabled: Boolean indicating if notifications are enabled.
+ * @field theme: User's preferred theme.
+ * @field language: User's preferred language.
  */
 typedef struct {
     char status[MAX_STATUS_LENGTH];
-    char display_name[MAX_STATUS_LENGTH];
-    uint8_t* profile_picture;
-    size_t profile_picture_size;
+    char display_name[MAX_DISPLAY_NAME_LENGTH];
     bool notifications_enabled;
+    int theme;
+    char language[MAX_LANGUAGE_CODE_LENGTH];
 } UserSettings;
+
+/**
+ * @function set_user_status
+ * @brief Sets the user's status message.
+ *
+ * @param status The new status message to set.
+ * @return ErrorCode indicating success or failure of the operation.
+ */
+ErrorCode set_user_status(const char* status);
 
 /**
  * @function set_display_name
  * @brief Sets the user's display name.
  *
- * @param display_name The new display name to set. Must not exceed MAX_STATUS_LENGTH.
+ * @param display_name The new display name to set.
  * @return ErrorCode indicating success or failure of the operation.
  */
 ErrorCode set_display_name(const char* display_name);
 
 /**
- * @function set_status
- * @brief Sets the user's status message.
+ * @function set_notification_preferences
+ * @brief Sets the user's notification preferences.
  *
- * @param status The new status message to set. Must not exceed MAX_STATUS_LENGTH.
+ * @param enabled Boolean indicating if notifications should be enabled.
  * @return ErrorCode indicating success or failure of the operation.
  */
-ErrorCode set_status(const char* status);
+ErrorCode set_notification_preferences(bool enabled);
 
 /**
- * @function set_profile_picture
- * @brief Sets the user's profile picture.
+ * @function set_theme
+ * @brief Sets the user's preferred theme.
  *
- * @param image_data Pointer to the image data.
- * @param image_size Size of the image data in bytes.
+ * @param theme The theme identifier to set.
  * @return ErrorCode indicating success or failure of the operation.
  */
-ErrorCode set_profile_picture(const uint8_t* image_data, size_t image_size);
+ErrorCode set_theme(int theme);
 
 /**
- * @function get_settings
+ * @function set_language
+ * @brief Sets the user's preferred language.
+ *
+ * @param language_code The language code to set.
+ * @return ErrorCode indicating success or failure of the operation.
+ */
+ErrorCode set_language(const char* language_code);
+
+/**
+ * @function get_user_settings
  * @brief Retrieves the current user settings.
  *
  * @param settings Pointer to a UserSettings structure where the current settings will be stored.
  * @return ErrorCode indicating success or failure of the operation.
  */
-ErrorCode get_settings(UserSettings* settings);
+ErrorCode get_user_settings(UserSettings* settings);
 
 /**
- * @function reset_settings
+ * @function reset_user_settings
  * @brief Resets all user settings to their default values.
  *
  * @return ErrorCode indicating success or failure of the operation.
  */
-ErrorCode reset_settings();
+ErrorCode reset_user_settings();
 
-/**
- * @function delete_account
- * @brief Deletes the user's account and all associated data.
- *
- * This operation is irreversible. All user data, including messages, contacts, and settings, will be permanently deleted.
- *
- * @return ErrorCode indicating success or failure of the operation.
- */
-ErrorCode delete_account();
+#ifdef __cplusplus
+}
+#endif
 
 #endif //SETTINGS_H
