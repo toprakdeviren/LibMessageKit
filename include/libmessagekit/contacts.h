@@ -2,7 +2,7 @@
 #define CONTACTS_H
 
 #include "common.h"
-#include "config.h"
+#include "private/config.h"
 
 #ifdef __cplusplus
 extern "C" {
